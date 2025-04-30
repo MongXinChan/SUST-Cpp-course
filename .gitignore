@@ -2,3 +2,8 @@
 .o
 .out
 .exe
+
+#Cmake
+*.cmake
+CMakeCache.txt
+CMakeFiles
