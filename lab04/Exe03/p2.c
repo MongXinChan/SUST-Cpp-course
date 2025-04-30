@@ -6,7 +6,7 @@ union data{
 };
 int main(){
     union data a;
-    printf("%d, %d\n", sizeof(a), sizeof(union data) );
+    printf("%zu, %zu\n", sizeof(a), sizeof(union data) );
     a.n = 0x40;
     printf("%X, %c, %hX\n", a.n, a.ch, a.m);
     a.ch = '9';
