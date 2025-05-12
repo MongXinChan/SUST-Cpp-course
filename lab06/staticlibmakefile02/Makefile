@@ -1,38 +1,17 @@
-# Makefile with static library
+#link with static library in makefile
 
-.PHONY: liba testliba clean
-
-# 定义编译器
+OBJS = $(patsubst %.c, %.o, $(wildcard ./*.c))
+TARGET = main
 CC = gcc
 
-# 定义静态库文件名
-LIBFUN = libfun.a
+LDFLAG = -L./lib_a
+LIB = -lmyfun
 
-# 默认目标
-all: testliba
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAG) $(LIB)
 
-# 编译静态库
-liba: $(LIBFUN)
-$(LIBFUN): max.o min.o
-	ar cr $@ $^
+%.o : %.c
+	$(CC) -c $^ -o $@
 
-# 编译 max.o
-max.o: max.c fun.h
-	$(CC) -c max.c
-
-# 编译 min.o
-min.o: min.c fun.h
-	$(CC) -c min.c
-
-# 编译并链接 main.out
-testliba: main.out
-main.out: main.o $(LIBFUN)
-	$(CC) -o $@ main.o -L. -lfun
-
-# 编译 main.o
-main.o: main.c fun.h
-	$(CC) -c main.c
-
-# 清理生成的文件
 clean:
-	rm -f *.o *.a main.out
+	rm -f *.o $(TARGET)

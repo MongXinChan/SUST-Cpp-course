@@ -1,0 +1,45 @@
+# Makefile with static library
+
+.PHONY: liba testliba clean all
+
+# 定义编译器
+CC = gcc
+
+# 定义静态库文件名
+LIBFUN = libfun.a
+
+# 默认目标
+all: testliba
+
+# 创建 objs 目录
+objs_dir:
+	@mkdir -p objs
+
+# 编译静态库
+liba: $(LIBFUN)
+$(LIBFUN): objs/max.o objs/min.o
+	ar cr $@ $^
+
+# 编译 max.o
+objs/max.o: src/max.c include/fun.h
+	$(CC) -c src/max.c -o objs/max.o -Iinclude
+
+# 编译 min.o
+objs/min.o: src/min.c include/fun.h
+	$(CC) -c src/min.c -o objs/min.o -Iinclude
+
+# 编译并链接 main.out
+testliba: main.out
+main.out: objs/main.o $(LIBFUN)
+	$(CC) -o $@ objs/main.o -L. -lfun
+
+# 编译 main.o
+objs/main.o: src/main.c include/fun.h
+	$(CC) -c src/main.c -o objs/main.o -Iinclude
+
+# 清理生成的文件
+clean:
+	rm -f objs/*.o $(LIBFUN) main.out
+
+# 确保在编译前创建 objs 目录
+objs/max.o objs/min.o objs/main.o: objs_dir
