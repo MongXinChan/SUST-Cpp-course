@@ -3,9 +3,18 @@
 .out
 .exe
 a.out
-.a
+
+# C++
+*.a
+*.so
+*.o
+*.out
 
 #Cmake
 *.cmake
 CMakeCache.txt
 CMakeFiles
+
+# Ignore files without extensions
+main
+p2_demo1
