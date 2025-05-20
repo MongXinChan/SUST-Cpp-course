@@ -1,4 +1,4 @@
-import libs
+import fibs
 if __name__== "__main__":
     fibs.fib(10)
     print()
