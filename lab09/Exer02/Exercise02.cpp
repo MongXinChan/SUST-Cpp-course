@@ -6,7 +6,7 @@ private:
 public:
     ConstMember(int a) : m_a(a) {}
     void display() const {
-        cout << "The value of the const member variable m_a is: "  << m_a << endl;
+        cout << "The value of the const member variable m_a is: " << m_a << endl;
     }
 };
 
@@ -16,7 +16,7 @@ int main() {
 
     o1.display();
     o2.display();
-    //  o1 = o2;
+    o1 = o2;
     
     return 0;
 }

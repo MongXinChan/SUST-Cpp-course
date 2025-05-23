@@ -1,9 +1,10 @@
-class VSDemo:   """Python code"""
-class_id=2025 
+class VSDemo:   
+    """Python code"""
+    class_id=2025 
 
-def __init__(self, length: int, nm: str):
-    self._length=length
-    self.name= (nm[:length-1] +'\0').ljust(length, '\0')[:length]
+    def __init__(self, length: int, nm: str):
+        self._length=length
+        self.name= (nm[:length-1] +'\0').ljust(length, '\0')[:length]
 
     @property
     def length(self):
