@@ -32,3 +32,6 @@ lab08/lab08_avx2
 lab08/lab08_avx2_omp
 lab09/static_member
 lab09/complex
+lab10/complex
+lab10/circle_program
+lab10/explicit_circle
