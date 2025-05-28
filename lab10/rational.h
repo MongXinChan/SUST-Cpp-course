@@ -21,6 +21,10 @@ public:
                   << ", n:" << numerator << " , d:" << denominator << std::endl;
     }
 
+    explicit operator double()const{
+        return static_cast<double>(numerator)/denominator;
+    }
+
     int getN() const { return numerator; }
     int getD() const { return denominator; }
 
