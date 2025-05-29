@@ -16,6 +16,7 @@ CMakeCache.txt
 CMakeFiles
 
 # Ignore files without extensions
+.vscode
 main
 p2_demo1
 Exe01
