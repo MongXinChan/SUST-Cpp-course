@@ -1,5 +1,10 @@
 #pragma once
 
+#include <cstddef>
+#include <memory>
+#include <iostream>
+#include <stdexcept> 
+
 class Matrix{
   private:
     size_t rows;
@@ -48,15 +53,18 @@ class Matrix{
     Matrix(const Matrix & m): rows(m.rows), cols(m.cols), data(m.data){}
     friend std::ostream & operator<<(std::ostream & os, const Matrix & m)
     {
-        os << "size (" << m.rows << "x" << m.cols << ")" << std::endl;
+        os << "(" << m.rows << "x" << m.cols << ") is" << std::endl;
         os << "[" << std::endl;
         for (size_t r = 0; r < m.rows; r++)
         {
             for(size_t c = 0; c < m.cols; c++)
-                os << m.data[r * m.rows + c] << ", ";
+                os << m.data[r * m.cols + c] << " ";
             os << std::endl;
         }
         os << "]";
         return os;
     }
+
+    //out-class implement of the friend function 
+    friend Matrix operator+(const Matrix& lhs, const Matrix& rhs);
 };

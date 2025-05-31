@@ -4,8 +4,8 @@
 
 int main()
 {
-    Matrix m1(3,8);
-    Matrix m2(4,8);
+    Matrix m1(3,4);
+    Matrix m2(2,3);
 
     std::cout << " m2 (Before) : "<< m2 << std::endl;
 
