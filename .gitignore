@@ -37,3 +37,5 @@ lab10/complex
 lab10/circle_program
 lab10/explicit_circle
 lab12/examples/output/virtual.exe
+lab12/employee_destructor_non_virtual
+lab12/employee_destructor_virtual
